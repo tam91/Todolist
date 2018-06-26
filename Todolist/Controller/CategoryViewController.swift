@@ -18,7 +18,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         load()
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        //print(Realm.Configuration.defaultConfiguration.fileURL)
 
     }
 
@@ -80,8 +80,9 @@ class CategoryViewController: UITableViewController {
             textField = alertTextField
             
         }
-        let action = UIAlertAction(title: "Add category", style: .default) { (action) in
-            if textField.text != nil {
+        let addAction = UIAlertAction(title: "Add category", style: .default) { (action) in
+//            print(textField.text!)
+            if textField.text! != "" {
                 
                 let category = Category()
                 category.name = textField.text!
@@ -90,8 +91,11 @@ class CategoryViewController: UITableViewController {
             }
             
         }
-        
-        alert.addAction(action)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) { (action) in
+              
+        }
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
     }

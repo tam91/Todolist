@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         
         do{
-            let realm = try Realm()
+            _ = try Realm()
         }catch {
             print("Error initialising new realm \(error)")
         }
